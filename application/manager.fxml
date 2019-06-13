@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<JFXTabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.managerController">
+   <tabs>
+      <Tab fx:id="lookBtn" text="借书">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="11.0" prefHeight="29.0" prefWidth="69.0" text="读者编号">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="336.0" layoutY="12.0" prefHeight="29.0" prefWidth="39.0" text="姓名">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="469.0" layoutY="11.0" prefHeight="29.0" prefWidth="39.0" text="类别">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="booktable" editable="true" layoutY="51.0" prefHeight="198.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="borrowbookid" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="图书编号" />
+                      <TableColumn fx:id="borrowname" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="书名" />
+                      <TableColumn fx:id="borrowtype" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="类别" />
+                        <TableColumn fx:id="borrowauthor" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="作者" />
+                        <TableColumn fx:id="borrowpress" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="出版社" />
+                        <TableColumn fx:id="borrowstate" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="状态" />
+                        <TableColumn fx:id="toBorrow" prefWidth="75.0" style="-fx-alignment: CENTER;" text="借阅" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label layoutX="234.0" layoutY="333.0" prefHeight="29.0" prefWidth="69.0" text="借阅结果">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="borrowRes" editable="false" layoutX="309.0" layoutY="330.0" prefHeight="35.0" prefWidth="290.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <TextField fx:id="lookbyname" layoutX="15.0" layoutY="295.0" prefHeight="30.0" prefWidth="186.0" promptText="按书名检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lookbyauthor" layoutX="235.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" promptText="按作者检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lookbytype" layoutX="235.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" promptText="按类别检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lookbypress" layoutX="15.0" layoutY="335.0" prefHeight="30.0" prefWidth="187.0" promptText="按出版社检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="lookBtn" layoutX="426.0" layoutY="256.0" mnemonicParsing="false" onAction="#onLook" prefHeight="29.0" prefWidth="55.0" text="检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clearBtn" layoutX="510.0" layoutY="256.0" mnemonicParsing="false" onAction="#onBookClear" prefHeight="29.0" prefWidth="55.0" text="清除">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="borrowBtn" layoutX="426.0" layoutY="295.0" mnemonicParsing="false" onAction="#onBorrow" prefHeight="29.0" prefWidth="55.0" text="借阅">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="exitBtn" layoutX="510.0" layoutY="295.0" mnemonicParsing="false" onAction="#onExit" prefHeight="29.0" prefWidth="55.0" text="返回">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <JFXTextField fx:id="borrowreaderid" layoutX="91.0" layoutY="8.0" prefHeight="30.0" prefWidth="114.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="nameshow" layoutX="374.0" layoutY="8.0" prefHeight="30.0" prefWidth="90.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="typeshow" layoutX="509.0" layoutY="8.0" prefHeight="30.0" prefWidth="90.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXCheckBox fx:id="readerSearchBtn" layoutX="216.0" layoutY="15.0" onAction="#onSearchReader" text="清除/查询">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <TextField fx:id="lookbyid" layoutX="15.0" layoutY="256.0" prefHeight="30.0" prefWidth="186.0" promptText="按编号检索">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="还书">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="读者编号">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXCheckBox fx:id="returnSearchBtn" layoutX="240.0" layoutY="14.0" onAction="#onRreaderSearch" text="清除/查询">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <Label layoutX="372.0" layoutY="14.0" text="读者姓名">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="returnTable" layoutY="51.0" prefHeight="271.0" prefWidth="600.0">
+                    <columns>
+                        <TableColumn fx:id="toReturn" prefWidth="50.0" style="-fx-alignment: CENTER;" text="还书" />
+                        <TableColumn fx:id="destroy" minWidth="0.0" prefWidth="100.0" style="-fx-alignment: CENTER;" text="损毁程度" />
+                        <TableColumn fx:id="rborrowid" prefWidth="90.0" style="-fx-alignment: CENTER;" text="借阅号" />
+                      <TableColumn fx:id="rbookid" prefWidth="90.0" style="-fx-alignment: CENTER;" text="图书编号" />
+                      <TableColumn fx:id="rbookname" prefWidth="90.0" style="-fx-alignment: CENTER;" text="图书名称" />
+                        <TableColumn fx:id="rdeadline" prefWidth="90.0" style="-fx-alignment: CENTER;" text="应还日期" />
+                        <TableColumn fx:id="rexceedday" prefWidth="90.0" style="-fx-alignment: CENTER;" text="超期天数" />
+                    </columns>
+                  </TableView>
+                  <JFXButton fx:id="returnBtn" buttonType="RAISED" defaultButton="true" layoutX="471.0" layoutY="328.0" onAction="#onReturnBook" prefHeight="35.0" prefWidth="98.0" style="-fx-background-color: #2196f3;" text="还书" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="14.0" layoutY="334.0" text="还书结果">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="returnRes" editable="false" layoutX="87.0" layoutY="328.0" prefHeight="37.0" prefWidth="339.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="bookstate" editable="false" layoutX="517.0" layoutY="146.0" opacity="0.0" prefHeight="35.0" prefWidth="83.0" promptText="状态">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="returnReaderid" layoutX="91.0" layoutY="8.0" prefColumnCount="11" prefHeight="34.0" prefWidth="124.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="returnReaderName" layoutX="449.0" layoutY="8.0" prefColumnCount="11" prefHeight="34.0" prefWidth="136.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="罚款">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Separator layoutX="300.0" layoutY="-4.0" orientation="VERTICAL" prefHeight="372.0" prefWidth="0.0" />
+                  <Label layoutX="14.0" layoutY="14.0" text="读者编号">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="65.0" text="读者姓名">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="fineReaderName" layoutX="89.0" layoutY="59.0" prefHeight="28.0" prefWidth="115.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="14.0" layoutY="118.0" text="读者类别">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="fineReaderType" layoutX="89.0" layoutY="112.0" prefHeight="28.0" prefWidth="115.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="14.0" layoutY="166.0" text="应交罚款">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="shouldPay" layoutX="89.0" layoutY="160.0" prefHeight="28.0" prefWidth="115.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="payBtn" buttonType="RAISED" defaultButton="true" layoutX="14.0" layoutY="285.0" onAction="#onPay" prefHeight="35.0" prefWidth="67.0" style="-fx-background-color: #2196f3;" text="缴纳" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="fineClearBtn" buttonType="RAISED" defaultButton="true" layoutX="138.0" layoutY="285.0" onAction="#onFineClear" prefHeight="35.0" prefWidth="65.0" style="-fx-background-color: #ea7676;" text="清除" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXButton>
+                  <TableView fx:id="finetable" layoutX="224.0" layoutY="-1.0" prefHeight="370.0" prefWidth="378.0">
+                    <columns>
+                      <TableColumn fx:id="fborrowid" prefWidth="75.0" style="-fx-alignment: CENTER;" text="借阅编号" />
+                      <TableColumn fx:id="fbookname" prefWidth="75.0" style="-fx-alignment: CENTER;" text="图书名称" />
+                        <TableColumn fx:id="finemoney" prefWidth="75.0" style="-fx-alignment: CENTER;" text="罚款金额" />
+                        <TableColumn fx:id="finereason" prefWidth="75.0" style="-fx-alignment: CENTER;" text="罚款原因" />
+                        <TableColumn fx:id="paied" prefWidth="75.0" style="-fx-alignment: CENTER;" text="是否已缴" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Button fx:id="fineSearchBtn" layoutX="140.0" layoutY="223.0" mnemonicParsing="false" onAction="#onFineSearch" prefHeight="32.0" prefWidth="61.0" text="查询">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="fineReaderid" layoutX="89.0" layoutY="8.0" prefHeight="34.0" prefWidth="115.0" promptText="U2016XXX">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <JFXCheckBox fx:id="onlyNotPay" layoutX="14.0" layoutY="228.0" text="只看未交">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <Label fx:id="fineRes" layoutX="17.0" layoutY="333.0" prefHeight="27.0" prefWidth="185.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="读者维护">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="readertable" editable="true" prefHeight="285.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="readeridInfo" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="读者编号" />
+                      <TableColumn fx:id="readernameInfo" onEditCommit="#onReaderMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="读者姓名" />
+                        <TableColumn fx:id="readersex" onEditCommit="#onReaderMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="性别" />
+                        <TableColumn fx:id="readertype" onEditCommit="#onReaderMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="类别" />
+                        <TableColumn fx:id="readerpwd" onEditCommit="#onReaderMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="密码" />
+                        <TableColumn fx:id="readerdel" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="删除" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <TextField fx:id="rlookbyid" layoutX="14.0" layoutY="296.0" prefHeight="30.0" prefWidth="113.0" promptText="读者编号">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="rlookbyname" layoutX="164.0" layoutY="296.0" prefHeight="30.0" prefWidth="117.0" promptText="姓名">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <JFXComboBox fx:id="rlookbysex" layoutX="164.0" layoutY="332.0" prefHeight="30.0" prefWidth="118.0" promptText="性别" style="-fx-font-size: 15;" />
+                  <JFXComboBox fx:id="rlookbytype" layoutX="14.0" layoutY="332.0" prefHeight="30.0" prefWidth="112.0" promptText="类别" style="-fx-font-size: 15;" />
+                  <TextField fx:id="rlookbypwd" layoutX="316.0" layoutY="296.0" prefHeight="30.0" prefWidth="118.0" promptText="密码">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="473.0" layoutY="297.0" mnemonicParsing="false" onAction="#onReaderSearch" prefHeight="30.0" prefWidth="55.0" text="查询">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="readerAddBtn" layoutX="316.0" layoutY="332.0" mnemonicParsing="false" onAction="#onReaderAdd" prefHeight="30.0" prefWidth="119.0" text="添加">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="readerDeleteAllBtn" layoutX="472.0" layoutY="332.0" mnemonicParsing="false" onAction="#onReaderDelAll" prefHeight="30.0" prefWidth="117.0" text="全部删除">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="534.0" layoutY="297.0" mnemonicParsing="false" onAction="#onReaderClear" prefHeight="30.0" prefWidth="55.0" text="清除">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="图书维护">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="bookInfotable" editable="true" prefHeight="275.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="ibookid" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="图书编号" />
+                      <TableColumn fx:id="ibookname" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="书名" />
+                        <TableColumn fx:id="iauthor" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="作者" />
+                        <TableColumn fx:id="itype" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="类别" />
+                        <TableColumn fx:id="ipress" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="出版社" />
+                        <TableColumn fx:id="iprice" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="价格" />
+                        <TableColumn fx:id="istate" onEditCommit="#onBookMod" prefWidth="75.0" style="-fx-alignment: CENTER;" text="状态" />
+                        <TableColumn fx:id="ibookaddr" onEditCommit="#onBookMod" prefWidth="75.0" text="馆藏地址" />
+                        <TableColumn fx:id="idelete" editable="false" prefWidth="75.0" style="-fx-alignment: CENTER;" text="下架" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <TextField fx:id="blookbyid" layoutX="6.0" layoutY="286.0" prefHeight="28.0" prefWidth="107.0" promptText="图书编号">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="blookbyname" layoutX="123.0" layoutY="285.0" prefHeight="28.0" prefWidth="107.0" promptText="书名">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="blookbyauthor" layoutX="240.0" layoutY="285.0" prefHeight="28.0" prefWidth="107.0" promptText="作者">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="blookbytype" layoutX="6.0" layoutY="327.0" prefHeight="28.0" prefWidth="107.0" promptText="类别">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="blookbypress" layoutX="123.0" layoutY="327.0" prefHeight="28.0" prefWidth="107.0" promptText="出版社">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="blookbyprice" layoutX="357.0" layoutY="327.0" prefHeight="32.0" prefWidth="51.0" promptText="价格">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="amount" layoutX="412.0" layoutY="327.0" prefHeight="32.0" prefWidth="53.0" promptText="数量">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="474.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBookAdd" prefHeight="30.0" prefWidth="57.0" text="录入">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <JFXComboBox fx:id="blookbystate" layoutX="359.0" layoutY="285.0" prefHeight="30.0" prefWidth="103.0" promptText="状态" style="-fx-font-size: 15;" />
+                  <Button layoutX="537.0" layoutY="327.0" mnemonicParsing="false" onAction="#onDeleteAllBook" prefHeight="30.0" prefWidth="57.0" text="全删">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="536.0" layoutY="286.0" mnemonicParsing="false" onAction="#onBookSearch" prefHeight="30.0" prefWidth="58.0" text="查询">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="blookbyaddr" layoutX="240.0" layoutY="327.0" prefHeight="28.0" prefWidth="107.0" promptText="馆藏地址">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="474.0" layoutY="328.0" mnemonicParsing="false" onAction="#onBookInputClear" prefHeight="30.0" prefWidth="58.0" text="清除">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</JFXTabPane>
